@@ -79,6 +79,7 @@ public class Store {
 			}
 		return arr;
 	}
+	
 	public void printArrayList() {
 		String ret = "";
 		for(int i=0; i<this.getData().size(); i++)
@@ -103,18 +104,16 @@ public class Store {
 		distance= radiusOfEarthInMiles*c;
 	}
 	
-
 	public String toString() {
-		String ret= "id- " + this.getId();
-		ret+= "; add- " + this.getAddress();
-		ret+= "; city- " + this.getCity();
-		ret+= "; state- " + this.getState();
-		ret+= "; zip- " + this.getZipCode();
-		ret+= "; lat- " + this.getLatitude();
-		ret+= "; long- " + this.getLongitude() + "\n";
-		ret+= "distance- "+ df.format(this.getDistance()) +"\n";
+		String ret= "Store #" + this.getId();
+		ret+= ". " + this.getAddress();
+		ret+= ", " + this.getCity();
+		ret+= ", " + this.getState();
+		ret+= ", " + this.getZipCode();
+		ret+= ". - " + df.format(this.getDistance()) + " miles\n";
 		return ret;
 	}
+	
 	public void setData(ArrayList<Store> data) {
 		this.data = new ArrayList<>();
 	}
@@ -130,16 +129,12 @@ public class Store {
 		return id;
 	}
 
-
-
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	/**
 	 * @return the address
@@ -148,16 +143,12 @@ public class Store {
 		return address;
 	}
 
-
-
 	/**
 	 * @param address the address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-
 
 	/**
 	 * @return the city
@@ -166,16 +157,12 @@ public class Store {
 		return city;
 	}
 
-
-
 	/**
 	 * @param city the city to set
 	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-
 
 	/**
 	 * @return the state
@@ -184,16 +171,12 @@ public class Store {
 		return state;
 	}
 
-
-
 	/**
 	 * @param state the state to set
 	 */
 	public void setState(String state) {
 		this.state = state;
 	}
-
-
 
 	/**
 	 * @return the zipCode
@@ -202,16 +185,12 @@ public class Store {
 		return zipCode;
 	}
 
-
-
 	/**
 	 * @param zipCode the zipCode to set
 	 */
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
-
-
 
 	/**
 	 * @return the latitude
@@ -220,16 +199,12 @@ public class Store {
 		return latitude;
 	}
 
-
-
 	/**
 	 * @param latitude the latitude to set
 	 */
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-
-
 
 	/**
 	 * @return the longitude
@@ -238,8 +213,6 @@ public class Store {
 		return longitude;
 	}
 
-
-
 	/**
 	 * @param longitude the longitude to set
 	 */
@@ -247,16 +220,12 @@ public class Store {
 		this.longitude = longitude;
 	}
 
-
-
 	/**
 	 * @return the distance
 	 */
 	public double getDistance() {
 		return distance;
 	}
-
-
 
 	/**
 	 * @param distance the distance to set
