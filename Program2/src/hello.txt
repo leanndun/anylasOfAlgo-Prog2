@@ -1,1 +1,28 @@
-Hello
+- order statistics query algorithm
+- query points
+- rand select()
+- rand partition()
+
+1. read the IDs, addresses, lat., long., of each store location
+and save it in an ArrayList
+    read in cvs files of whataburger
+    read in cvs files of starbucks
+
+2. Compute the distance of the query point to each of the different stores using the Haversine Formula
+
+3. Store these distances into an array
+
+
+- implement the Rand-Select() algorithm
+- implement the Rand-Partition() algorithm
+
+- there is a seperate file that containt the query points:
+(the current location of the mobile user)^
+
+
+- Use the order statistic query to find the farthest store from the query that we care about.
+
+
+
+
+
