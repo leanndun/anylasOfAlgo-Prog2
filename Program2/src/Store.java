@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Store {
+	public static ArrayList<Store> data;
+	public double arr[];
 	private static final DecimalFormat df = new DecimalFormat("0.00");
 	public int id;
 	public String address;
@@ -30,6 +32,58 @@ public class Store {
 		distance=-1;
 
 	
+	}
+	
+	public ArrayList<Store> loadStore(String filename) throws IOException{
+		try {
+			Scanner scan = new Scanner(new File(filename));
+			scan.nextLine();
+			setData(this.data);
+			
+			while(scan.hasNextLine()) {
+				String line = scan.nextLine();
+				String[] tokens = line.split( "," );
+				if( tokens!=null && tokens.length==7) {
+					String id = tokens[0];
+					String add= tokens[1];
+					String city= tokens[2];
+					String state= tokens[3];
+					String zip= tokens[4];
+					String lat= tokens[5];
+					String longti= tokens[6];
+					
+					Store tempStore = new Store (id, add, city, state, zip, lat, longti);
+					this.data.add(tempStore);
+				}
+			}
+			
+			
+			scan.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		return data;
+		
+	}
+	public double[] makeArr(ArrayList<Store> data) {
+		this.arr= new double[data.size()];
+		double hey;
+		double hi;
+		Store temp= new Store();
+		for(int i=0; i<arr.length; i++) {
+			hey=data.get(i).latitude;
+			hi=data.get(i).longitude;
+			temp=data.get(i);
+			temp.computeDistance(29.5827351, -98.621094);
+			arr[i]=temp.getDistance();
+			}
+		return arr;
+	}
+	public void printArrayList() {
+		String ret = "";
+		for(int i=0; i<this.getData().size(); i++)
+			ret+= this.data.get(i)+ "\n";
+		System.out.println(ret);
 	}
 	
 	
@@ -60,6 +114,13 @@ public class Store {
 		ret+= "; long- " + this.getLongitude() + "\n";
 		ret+= "distance- "+ df.format(this.getDistance()) +"\n";
 		return ret;
+	}
+	public void setData(ArrayList<Store> data) {
+		this.data = new ArrayList<>();
+	}
+	
+	public ArrayList<Store> getData() {
+		return data;
 	}
 
 	/**
