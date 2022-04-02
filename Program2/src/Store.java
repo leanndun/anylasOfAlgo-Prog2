@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
@@ -27,10 +28,10 @@ public class Store {
 		latitude= Double.parseDouble(theLat);
 		longitude=Double.parseDouble(theLongti);
 		distance=-1;
+
 	
 	}
 	
-
 	
 	public void computeDistance (double otherLat, double otherLong) {
 		//Haversine Formula
@@ -47,6 +48,7 @@ public class Store {
 		double c= 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 		distance= radiusOfEarthInMiles*c;
 	}
+	
 
 	public String toString() {
 		String ret= "id- " + this.getId();
